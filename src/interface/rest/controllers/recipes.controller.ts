@@ -49,6 +49,13 @@ export class RecipesController {
           HttpStatus.BAD_REQUEST,
         );
       }
+      throw new HttpException(
+        {
+          status: HttpStatus.INTERNAL_SERVER_ERROR,
+          error: 'An unexpected error occurred',
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 
