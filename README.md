@@ -135,6 +135,7 @@ This section describes the available API endpoints.
 
 Here are some ideas for future enhancements and features:
 
+- [ ] Add Swagger documentation for the API.
 - [ ] Improve error handling and logging.
 - [ ] Better TypeScript practices in the application
 - [ ] Dockerize the application for easier deployment.
