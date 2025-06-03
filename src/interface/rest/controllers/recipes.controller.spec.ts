@@ -78,7 +78,7 @@ describe('RecipesController', () => {
         await controller.create(invalidDto);
       } catch (error) {
         expect(error).toBeInstanceOf(HttpException);
-        const response = error.getResponse() as any;
+        const response = error.getResponse();
         expect(response.status).toBe(HttpStatus.BAD_REQUEST);
         expect(response.error).toBe('Validation failed');
         expect(response.details).toEqual(
@@ -110,7 +110,7 @@ describe('RecipesController', () => {
         await controller.create(createRecipeDto);
       } catch (error) {
         expect(error).toBeInstanceOf(HttpException);
-        const response = error.getResponse() as any;
+        const response = error.getResponse();
         expect(response.status).toBe(HttpStatus.INTERNAL_SERVER_ERROR);
         expect(response.error).toBe('An unexpected error occurred');
       }
