@@ -52,7 +52,7 @@ describe('RecipesController', () => {
       const mockRecipe = {
         id: mockId,
         ...createRecipeDto,
-        toHTTP: () => ({ id: mockId, ...createRecipeDto }), // Simula o método toHTTP
+        toHTTP: () => ({ id: mockId, ...createRecipeDto }),
       };
 
       mockCreateRecipeUseCase.execute.mockResolvedValue(mockRecipe);
