@@ -1,10 +1,23 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+
+import { RecipesController } from './interface/rest/controllers/recipes.controller';
+
+import { CreateRecipeUseCase } from './application/use-cases/create-recipe.usecase';
+import { ListRecipesUseCase } from './application/use-cases/list-recipes.usecase';
+import { GetRecipeByIdUseCase } from './application/use-cases/get-recipe-by-id.usecase';
+import { InMemoryRecipeRepository } from './infrastructure/database/memory/recipe.repository';
 
 @Module({
   imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [RecipesController],
+  providers: [
+    {
+      provide: 'RecipeRepository',
+      useClass: InMemoryRecipeRepository,
+    },
+    CreateRecipeUseCase,
+    ListRecipesUseCase,
+    GetRecipeByIdUseCase,
+  ],
 })
 export class AppModule {}
